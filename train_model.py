@@ -13,13 +13,13 @@ def train_model():
 
     print("Loading dataset...")
 
-    data = pd.read_csv("cardio_train.csv")
+    data = pd.read_csv("cardio_train.csv", sep=";")
 
     print("Dataset loaded successfully.")
     print("Number of records:", len(data))
 
     # Remove ID column
-    data = data.drop("id", axis=1)
+    data = data.drop("id", axis=1, errors="ignore")
 
     # Input features
     features = [
